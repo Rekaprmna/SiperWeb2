@@ -60,7 +60,7 @@ if(isset($_POST['login'])){
                 title: 'Login Berhasil!',
                 icon: 'success'
             }).then(function() {
-                window.location.href = 'index.php';
+                window.location.href = 'home.php';
             });
         </script>";
       } 
