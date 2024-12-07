@@ -10,6 +10,7 @@ require "connection/koneksi.php";
     <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="sweetalert2.min.css">
     <script src="js/sweetalert2.all.min.js"></script>
+    <script src="js/sweetalert2.min.js"></script>
   </head>
   <body>
     <div class="login-container">
@@ -55,18 +56,18 @@ if(isset($_POST['login'])){
         
         echo"
         <script>    
-            Swal.fire({
+            swal.fire({
                 title: 'Login Berhasil!',
                 icon: 'success'
             }).then(function() {
-                window.location.href = 'home.php';
+                window.location.href = 'index.php';
             });
         </script>";
       } 
     }else{
       echo"
       <script>    
-          Swal.fire({
+          swal.fire({
                 title: 'Login Gagal!',
                 icon: 'error'
           }).then(function() {
