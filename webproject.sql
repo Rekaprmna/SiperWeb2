@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Nov 2024 pada 09.42
+-- Waktu pembuatan: 02 Des 2024 pada 17.07
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.0.25
 
@@ -41,7 +41,7 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`id_account`, `email`, `password`, `akses`) VALUES
 (1, 'rekka31@gmail.com', 'e00cf25ad42683b3df678c61f42c6bda', 2),
 (2, 'ryan2@gmail.com', 'ryan123', 2),
-(3, 'Mifta3@gmail.com', 'mifta33', 3);
+(3, 'Mifta3@gmail.com', 'b5d54b3729c0a52fea8c0f84208065a9', 2);
 
 -- --------------------------------------------------------
 
@@ -118,7 +118,7 @@ CREATE TABLE `tblpeminjaman` (
 --
 
 INSERT INTO `tblpeminjaman` (`pk_id`, `fk_induk_sekolah`, `fk_buku`, `tgl_peminjam`, `tgl_kembali`) VALUES
-(1, 1021901011, 2, '2024-11-24 17:00:00', '2024-12-30 17:00:00');
+(1, 1021901011, 2, '2024-11-05 17:00:00', '2024-12-03 17:00:00');
 
 --
 -- Indexes for dumped tables
@@ -159,7 +159,7 @@ ALTER TABLE `tblpeminjaman`
 -- AUTO_INCREMENT untuk tabel `account`
 --
 ALTER TABLE `account`
-  MODIFY `id_account` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_account` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbldata_buku`
