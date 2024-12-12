@@ -61,13 +61,7 @@ CREATE TABLE `tbldata_buku` (
 -- Dumping data untuk tabel `tbldata_buku`
 --
 
-INSERT INTO `tbldata_buku` (`id_buku`, `judul`, `penulis`, `penerbit`, `tahun_terbit`, `fk_induk`) VALUES
-(1, 'Matematika Cermat', 'Handoko Siswanto', 'Fiki Nur Sabani', '2020', 12919191),
-(2, 'Fisika', 'Johan Cruyf', 'Malika', '2020', 1021901011),
-(3, 'Siksa Kubur', 'Muhammad Ali', 'Rojak', '2012', 2147483647),
-(5, 'Si Kancil yang Licik', 'Upin', 'Ipin', '2021', 23111),
-(6, 'Jalan yang jauh', 'Jay', 'Stefan', '2019', 839219191),
-(7, 'awdawdaw', 'wrerqwaw', 'awd', '1323', 839219191);
+    
 
 -- --------------------------------------------------------
 

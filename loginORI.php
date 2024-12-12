@@ -1,24 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-require "connection/koneksi.php";
-?>
-<!--  -->
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-require "connection/koneksi.php";
-
-if (!$conn) {
-    die("Connection object is null. Check your connection settings in 'koneksi.php'.");
-} else {
-    echo "Connection object imported successfully!<br>";
-}
-?>
-<!--  -->
-
-
-<?php
 require "connection/koneksi.php"; 
 ?>
 <!DOCTYPE html>
@@ -28,6 +8,8 @@ require "connection/koneksi.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Perpustakaan Daerah</title>
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="js/sweetalert2.all.min.js"></script>
   </head>
   <body>
     <div class="login-container">
@@ -61,22 +43,36 @@ require "connection/koneksi.php";
 if(isset($_POST['login'])){
   $email  = $_POST['email'];
   $password =md5($_POST['password']);
-  $query2 = mysqli_query($conn,"SELECT * FROM account WHERE email = '$email' AND password = '$password'");
+  $query2 = mysqli_query($conn,"SELECT * FROM account where email = '$email' AND password = '$password'");
 
-  if(mysqli_num_rows($query2) != 0){
-    $row = mysqli_fetch_assoc($query2);
-    session_start();
+    if(mysqli_num_rows($query2) != 0){
+      $row = mysqli_fetch_assoc($query2);
+      session_start();
 
-    if($row['akses'] == 2){
-      $_SESSION['id'] = $row['id_account'];
-      $_SESSION['email'] = $row['email'];
-
-      header("Location: home.php");
-      exit();
-    } 
-  } else {
-    header("Location: index.php?error=login_failed");
-    exit();
-  }
+      if($row['akses']==2){
+        $_SESSION['id'] = $row['id_account'];
+        $_SESSION['email'] = $row['email'];
+        
+        echo"
+        <script>    
+            Swal.fire({
+                title: 'Login Berhasil!',
+                icon: 'success'
+            }).then(function() {
+                window.location.href = 'home.php';
+            });
+        </script>";
+      } 
+    }else{
+      echo"
+      <script>    
+          Swal.fire({
+                title: 'Login Gagal!',
+                icon: 'error'
+          }).then(function() {
+              window.location.href = 'index.php';
+          });
+      </script>";
+    }
 }
 ?>
